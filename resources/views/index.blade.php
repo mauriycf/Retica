@@ -7,7 +7,7 @@
 </section>
 
 <div class="content">
-    <div class="col">
+    <div class="col1">
         <div class="row">
             <h3><a href="">Oportunidades de Estudio</a></h3>
             <p><a href="">Lorem ipsum dolor sit amet, .</a></p>

@@ -3,18 +3,13 @@
 namespace retica\Http\Controllers;
 
 use Illuminate\Http\Request;
-use retica\Http\Requests\UserCreateRequest;
-use retica\Http\Requests\UserUpdateRequest;
-use retica\User;
+use retica\Http\Requests\loginRequest;
 use Session;
 use Redirect;
+use Auth;
 
-class UsuarioController extends Controller
+class logController extends Controller
 {
-    public function __construct()
-    {
-
-    }
     /**
      * Display a listing of the resource.
      *
@@ -22,8 +17,7 @@ class UsuarioController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(6);
-        return view('usuario.index',compact('users'));
+        //
     }
 
     /**
@@ -33,7 +27,7 @@ class UsuarioController extends Controller
      */
     public function create()
     {
-        return view('usuario.create');
+        //
     }
 
     /**
@@ -42,15 +36,14 @@ class UsuarioController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(UserCreateRequest $request)
+    public function store(loginRequest $request)
     {
-        User::create(
-        ['name' => $request['name'],
-        'email' => $request['email'],
-        'password' => bcrypt($request['password']),
-        ]);
-
-      return redirect('/usuario')->with('message','store');
+        if(Auth::attempt(['email'=>$request['email'], 'password' => $request['password']]))
+        {
+            return Redirect::to('admin');
+        }
+        Session::flash('message-error', 'Datos son incorrectos');
+        return Redirect::to('foro');
     }
 
     /**
@@ -72,8 +65,7 @@ class UsuarioController extends Controller
      */
     public function edit($id)
     {
-        $user = User::find($id);
-        return view('usuario.edit',['user'=>$user]);
+        //
     }
 
     /**
@@ -83,14 +75,9 @@ class UsuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(UserUpdateRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $user = User::find($id);
-        $user->fill($request->all());
-        $user->save();
-
-        Session::flash('message','Usuario Editado Correctamente');
-        return Redirect::to('/usuario');
+        //
     }
 
     /**
@@ -101,8 +88,13 @@ class UsuarioController extends Controller
      */
     public function destroy($id)
     {
-        User::destroy($id);
-        Session::flash('message','Usuario Eliminado Correctamente');
-        return Redirect::to('/usuario');
+        //
     }
+
+    public function logout()
+    {
+        Auth::logout();
+        return Redirect::to('/');
+    }
+
 }

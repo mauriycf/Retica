@@ -140,6 +140,8 @@
                         <li><a href="#">Lorem ipsum dolor sit.</a></li>
                         <li><a href="#">Lorem ipsum dolor sit.</a></li>
                     </ul>
+                    <div class="cintillo-aside"></div>
+                    <a class="twitter-timeline" data-lang="es" data-width="220" data-height="460" href="https://twitter.com/TwitterDev/likes">Tweets Liked by @TwitterDev</a> <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
                 </div>
             </aside>
         </div>

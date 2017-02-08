@@ -42,8 +42,8 @@ header nav ul{
 header nav img#logo{
   float: left;
   display: block;
-  width: 400px;
-  height: 320px;
+  max-width: 400px;
+  max-height: 320px;
   margin-left: 30px;
   margin-right: 30px;
   margin-top: 10px;
@@ -140,7 +140,7 @@ header nav ul .dropdown .dropbtn:hover{
 
 /* top-nav para telefonos*/
 
-@media(max-width: 600px){
+@media(max-width: 700px){
   .cabecera{
     display: none;
   }
@@ -150,7 +150,7 @@ header nav ul .dropdown .dropbtn:hover{
   }
 
   .content{
-    display: none;
+   display: none
   }
 
   .footer .social [class^="icon"]{
@@ -161,6 +161,62 @@ header nav ul .dropdown .dropbtn:hover{
 
   .navbar{
     display: block;
+  }
+
+  .content-1{
+    display: inline-block;
+  }
+
+.content-1 .row{
+  height: 800px;
+}
+
+  .content-1 .row .contactenos{
+    max-width: 100%
+  }
+
+  .content-1 .row .contactenos .col-md-4 .ubicacion iframe{
+    width: 335px;
+  }
+
+  .main-container .row aside{
+    display: none;
+  }
+
+  .main-container {
+    max-width: 100%;
+  }
+
+  .main-container .row{
+    max-width: 100%;
+  }
+
+  .main-container .row .post{
+    max-width: 100%;
+  }
+
+  .main-container .row .post .cintillo{
+    max-width: 355px;
+  }
+  
+  .main-container .row .post article{
+    width: 100%;
+  }
+
+  #barra{
+    background: #12324f;
+  }
+
+  #barra .container-fluid .navbar-header .navbar-toggle:hover{
+    background: #173f62;
+  }
+
+  #barra .container-fluid #myNavbar ul li a{
+    color: #fff;
+  }
+
+  #barra .container-fluid #myNavbar ul li a:hover{
+    background: #173f62;
   }
 
 }
